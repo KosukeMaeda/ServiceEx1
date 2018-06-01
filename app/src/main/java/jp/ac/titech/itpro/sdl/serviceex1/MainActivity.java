@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
         testService2();
     }
 
+    public void pressTest3(View v) {
+        testService3();
+    }
+
     private void testService1() {
         Log.d(TAG, "testService1 in " + Thread.currentThread());
         Intent intent = new Intent(this, TestService1.class);
@@ -36,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "testService2 in " + Thread.currentThread());
         Intent intent = new Intent(this, TestService2.class);
         intent.putExtra(TestService2.EXTRA_MYARG, "Hello, Service2");
+        startService(intent);
+    }
+
+    private void testService3() {
+        Log.d(TAG, "testService3 in " + Thread.currentThread());
+        Intent intent = new Intent(this, TestService3.class);
+        intent.putExtra(TestService2.EXTRA_MYARG, "Hello, Service3");
         startService(intent);
     }
 
